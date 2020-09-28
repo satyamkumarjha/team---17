@@ -1,0 +1,55 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    {% if messages %}
+        {% for msg in messages %}
+            {% if message.tags == 'success' %}
+                <script>
+                    M.toast(
+                        {
+                            html : "{{message}}", 
+                            classes :'green rounded', 
+                            displayLength : 2000
+                        }
+                    )
+                </script>
+            {% elif message.tags == 'info' %}
+                <script>
+                    M.toast(
+                        {
+                            html : "{{message}}", 
+                            classes :'blue rounded', 
+                            displayLength : 2000
+                        }
+                    )
+                </script>
+            {% elif message.tags == 'warning' %}
+                <script>
+                    M.toast(
+                        {
+                            html : "{{message}}", 
+                            classes :'orange rounded', 
+                            displayLength : 10000
+                        }
+                    )
+                </script>
+            {% elif message.tags == 'error' %}
+                <script>
+                    M.toast(
+                        {
+                            html : "{{message}}", 
+                            classes :'red rounded', 
+                            displayLength : 10000
+                        }
+                    )
+                </script>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% block content%}
+    {% endblock %}
+</body>
