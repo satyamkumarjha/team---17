@@ -20,7 +20,8 @@ from . import views
 app_name = 'login'
 
 urlpatterns = [
-    #path('',views.homepage,name="homepage"),
+    #path('',include()),
     path('login/',views.login_request,name="login"),
-    path('register/',views.register,name="login"),
+    path('register/',views.register,name="register"),
+    #path('googleauth',views.googleLogin,name="googleLogin")
 ]

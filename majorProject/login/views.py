@@ -40,3 +40,6 @@ def register(request):
                 messages.error(request,f"{msg}: form.error_messages[msg]")
     form = RegisterForm
     return render(request,"main/register.html",context={"form":form})
+
+def googleLogin(request):
+    return render(request, "main/googleLogin.html")

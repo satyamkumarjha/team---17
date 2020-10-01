@@ -1,8 +1,11 @@
 {% extends "main/includes/header.html" %}
 
+{% load socialaccount%}
+{% providers_media_js %}
+
 {% block content %}
     <body>
-        <div class="container-sm">
+        <div class="container-sm md-4">
             <div class="form-group">
                 <form method="POST">
                     {%csrf_token%}
@@ -10,7 +13,7 @@
                     <input class="btn btn-primary" type="submit" value="Submit">
                 </form>
             </div>
-            Don't have an account, consider <a href = '/register'> Registering </a> first.
+            Don't have an account, consider <a href = '/register'> Registering </a> first or <a href=" {% provider_login_url "google" %} ">Googe Login</a>.
         </div>
     </body>
 {% endblock %}
