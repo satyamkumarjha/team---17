@@ -4,16 +4,23 @@
 {% providers_media_js %}
 
 {% block content %}
+</head>
     <body>
         <div class="container-sm md-4">
-            <div class="form-group">
-                <form method="POST">
-                    {%csrf_token%}
-                    {{form.as_p}}
-                    <input class="btn btn-primary" type="submit" value="Submit">
-                </form>
+            <div class = "row">
+                <div class = "col-sm"></div>
+                <div class = "col-sm">
+                    <div class="form-group">
+                        <form method="POST">
+                            {%csrf_token%}
+                            {{form.as_p}}
+                            <input class="btn btn-primary" type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+                <div class = "col-sm"></div>
             </div>
-            Don't have an account, consider <a href = '/register'> Registering </a> first or <a href=" {% provider_login_url "google" %} ">Googe Login</a>.
+            <div class = "row"> Don't have an account, consider  <a href = '/register'> Registering </a> first or  <a href=" {% provider_login_url "google" %} ">Googe Login</a>.</div>
         </div>
     </body>
 {% endblock %}
