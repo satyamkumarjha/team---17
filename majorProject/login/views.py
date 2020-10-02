@@ -16,7 +16,7 @@ def login_request(request):
             password = form.cleaned_data.get('password')
             user = authenticate(username = username,password = password)
             if user is not None:
-                login(request,user)
+                login(request,user,backend='django.contrib.auth.backends.ModelBackend')
                 messages.info(request,f"You are now logged in as {username}")
                 return redirect('main:homepage')
             else:
@@ -33,7 +33,7 @@ def register(request):
             user = form.save()
             username = form.cleaned_data.get('username')
             messages.success(request,f"New Account Created: {username}")
-            login(request,user)
+            login(request,user,backend='django.contrib.auth.backends.ModelBackend')
             return redirect('main:homepage')
         else:
             for msg in form.error_messages:
