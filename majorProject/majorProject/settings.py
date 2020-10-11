@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'login',
     'main',
     'content',
+    'teachers',
 
     #all auth
     'allauth',

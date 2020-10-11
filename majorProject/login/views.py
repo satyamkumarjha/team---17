@@ -24,7 +24,7 @@ def login_request(request):
         else:
             messages.error(request,"Invalid Username or Password")
     form = LoginForm
-    return render(request,"main/loginNew.html",context={"form":form})
+    return render(request,"main/login.html",context={"form":form})
 
 def register(request):
     if request.method == "POST":
