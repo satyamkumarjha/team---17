@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 def contentView(request):
-    return render(request,'content/courses.html')
+    return render(request,'courses.html')
 
 def reviewsView(request):
-    return render(request,'content/reviews.html')
+    return render(request,'reviews.html')

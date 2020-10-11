@@ -24,7 +24,7 @@ def login_request(request):
         else:
             messages.error(request,"Invalid Username or Password")
     form = LoginForm
-    return render(request,"main/login.html",context={"form":form})
+    return render(request,"login.html",context={"form":form})
 
 def register(request):
     if request.method == "POST":
@@ -39,7 +39,7 @@ def register(request):
             for msg in form.error_messages:
                 messages.error(request,f"{msg}: form.error_messages[msg]")
     form = RegisterForm
-    return render(request,"main/registerNew.html",context={"form":form})
+    return render(request,"registerNew.html",context={"form":form})
 
 def googleLogin(request):
-    return render(request, "main/googleLogin.html")
+    return render(request, "googleLogin.html")
