@@ -1,0 +1,15 @@
+{%extends 'includes/header.html'%}
+
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <br>
+    <input type="file" name="document">
+    <br>
+    <input type="text" name="tutorial name">
+    <br><br>
+    <button type="submit">Upload</button>
+</form>
+
+{% endblock %}
