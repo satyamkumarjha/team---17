@@ -1,16 +1,27 @@
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
+from .uploadForm import UploadFileForm
+from django.shortcuts import redirect
+import os
+from django.conf import settings
 
 # Create your views here.
-def upload(request):
+
+def upload_file(request):
     if request.method == 'POST':
-        context = {}
-        uploadedFile = request.FILES['document']
-        courseName = request.POST['text']
-        print(courseName)
-        #print(uploadedFile.name)
-        #print(uploadedFile.size)
-        fs = FileSystemStorage()
-        name = fs.save(name = uploadedFile.name,content = uploadedFile)
-        context['url'] = fs.url(name)
-    return render(request,'videoUpload.html',context)
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            course = request.POST['course']
+            print('course',request.POST['course'])
+            upFile = request.FILES['file']
+            fileName = request.POST['FileName']
+            print('filename',fileName)
+            fs = FileSystemStorage()
+            fs.location = os.path.join(settings.MEDIA_ROOT,'negi123')
+            print(fs.location)
+            fs.save(name=fileName,content=upFile)
+            #handle_uploaded_file(request.FILES['file'])
+            return redirect('home/')
+    else:
+        form = UploadFileForm()
+    return render(request, 'videoUpload.html', {'form': form})

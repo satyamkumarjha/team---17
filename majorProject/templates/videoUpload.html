@@ -3,13 +3,11 @@
 {% block content %}
 
 <form action="" method="post" enctype="multipart/form-data">
+    <br>
     {% csrf_token %}
+    {{form.as_p}}
     <br>
-    <input type="file" name="document">
-    <br>
-    <input type="text" name="tutorialName">
-    <br><br>
-    <button type="submit">Upload</button>
+    <button class="submit-btn form-control" id="form-submit">Upload</button>
 </form>
  {% if url %}
     <p>FIle Uploaded Successfully</p>
