@@ -18,3 +18,7 @@ class course_reviews(models.Model):
     reviewer_name = models.CharField(max_length=300)
     review_para = models.TextField()
     review_rating = models.IntegerField(choices=[(i,i) for i in range(1,6)])
+
+class tutorials(models.Model):
+    tutorial_name = models.CharField(max_length=300)
+    tutorial_description = models.TextField()
