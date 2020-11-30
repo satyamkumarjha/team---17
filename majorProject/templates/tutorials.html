@@ -11,25 +11,28 @@
                             <h2>Popular Courses <small>Upgrade your skills with newest courses</small></h2>
                        </div>
                        <div class="owl-carousel owl-theme owl-courses">
-                              {% for course in courses%}
+                              {% for t in tuts%}
                                    <div class="col-md-4 col-sm-4">
                                         <div class="item">
                                              <div class="courses-thumb">
                                                   <div class="courses-top">
                                                        <div class="courses-image">
                                                             <!--<img src="images/courses-image1.jpg" class="img-responsive" alt="">-->
-                                                            <img src="{%static 'images/courses-image1.jpg'%}" class="img-responsive" alt="">
+                                                            <!--<img src="{%static 'images/courses-image1.jpg'%}" class="img-responsive" alt="">-->
+                                                            <video width="1080" height="760" controls>
+                                                                 <source src="{{t.tutorial_video.url}}" type="video/mp4">
+                                                             </video>
                                                        </div>
-                                                       <div class="courses-date">
+                                                       <!--<div class="courses-date">
                                                             <span><i class="fa fa-calendar"></i> 12 / 9 / 2020</span>
                                                             <span><i class="fa fa-clock-o"></i> 3.5 Hours</span>
-                                                       </div>
+                                                       </div>-->
                                                   </div>
      
-                                                  <div class="courses-detail">
+                                                  <!--<div class="courses-detail">
                                                        <h3><a href="content/{{course.course_slug}}"> {{course.course_name}} </a></h3>
                                                        <p>{{course.course_info}}</p>
-                                                  </div>
+                                                  </div>-->
      
                                                   <div class="courses-info">
                                                        <div class="courses-author">
@@ -38,9 +41,9 @@
                                                             <img src="{%static 'images/author-image2.jpg'%}" class="img-responsive" alt="">
                                                             <span>{{course.instructor_name}}</span>
                                                        </div>
-                                                       <div class="courses-price">
+                                                       <!--<div class="courses-price">
                                                             <a href="#"><span>₹150</span></a>
-                                                       </div>
+                                                       </div>-->
                                                   </div>
                                              </div>
                                         </div>

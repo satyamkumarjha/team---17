@@ -9,7 +9,8 @@ class course(models.Model):
     cover_image_url = models.SlugField()
     videos_location = models.SlugField()
     instructor_name = models.CharField(max_length=300)
-    instructor_qualification = models.CharField(max_length=300) 
+    course_slug = models.SlugField(default='course')
+    course_thumbnail = models.ImageField(blank=True)
     def __str__(self):
         return self.course_name
 
@@ -22,3 +23,11 @@ class course_reviews(models.Model):
 class tutorials(models.Model):
     tutorial_name = models.CharField(max_length=300)
     tutorial_description = models.TextField()
+    tutorial_slug = models.SlugField(default='tut') 
+    course_name = models.ForeignKey(course,default=1,on_delete=models.SET_DEFAULT)
+    tutorial_video = models.FileField()
+
+class instructor(models.Model):
+    instructor_name = models.CharField(max_length=300)
+    instructor_tagline = models.TextField()
+    instructor_img = models.ImageField(blank=True)
