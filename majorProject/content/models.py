@@ -6,8 +6,6 @@ class course(models.Model):
     course_name = models.CharField(max_length=300)
     course_id = models.IntegerField()
     course_info = models.TextField()
-    cover_image_url = models.SlugField()
-    videos_location = models.SlugField()
     instructor_name = models.CharField(max_length=300)
     course_slug = models.SlugField(default='course')
     course_thumbnail = models.ImageField(blank=True)
