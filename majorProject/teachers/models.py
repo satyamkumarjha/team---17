@@ -9,5 +9,6 @@ class teacherData(models.Model):
     instagram_id = models.SlugField(max_length=400)
     email_id = models.SlugField(max_length=400)
     tag_line = models.CharField(max_length=400)
+    teacher_image = models.ImageField(blank=True)
     def __str__(self):
         return self.teacher_name

@@ -22,6 +22,8 @@ app_name = 'login'
 urlpatterns = [
     #path('',include()),
     path('login/',views.login_request,name="login"),
-    path('register/',views.register,name="register"),
+    path('register/',views.register_student,name="register"),
+    path('register-teacher/',views.register_teacher,name="register"),
+    path('register-student/',views.register_student,name="register"),
     #path('googleauth',views.googleLogin,name="googleLogin")
 ]

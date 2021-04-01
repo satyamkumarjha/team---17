@@ -21,7 +21,7 @@ app_name = 'videoUpload'
 
 urlpatterns = [
     #path('',include()),
-    path('',views.upload_file,name="upload"),
+    path('',views.trial,name="upload"),
     #path('register/',views.register,name="register"),
     #path('googleauth',views.googleLogin,name="googleLogin")
 ]

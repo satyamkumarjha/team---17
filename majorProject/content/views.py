@@ -2,6 +2,7 @@ from django.shortcuts import render,HttpResponse,Http404
 import os
 from django.conf import settings
 from .models import course,course_reviews,tutorials,instructor
+from dashboard.models import courses_enrolled
 
 
 def contentView(request):
@@ -19,7 +20,7 @@ def contentView(request):
 
 def single_slug(request,single_slug):
     courses = [i.course_slug for i in course.objects.all()]
-    print(courses)
+    #print(courses)
 
     if single_slug in courses:
         current_tutorials = []
@@ -36,9 +37,39 @@ def single_slug(request,single_slug):
         for i in instructor.objects.all():
             if i.instructor_name == instr:
                 instructor_details = i
-        print('current course:',current_course)
-        print(current_tutorials)
+        #print('current course:',current_course)
+        #print(current_tutorials)
         return render(request,'tutorials.html',context={'tuts':current_tutorials,'ins':instructor_details,'course':current_course})
+
+def enroll_single_slug(request,single_slug):
+    courses = [i.course_slug for i in course.objects.all()]
+    #print(courses)
+
+
+
+    if single_slug in courses:
+        current_tutorials = []
+        for c in course.objects.all():
+            if c.course_slug == single_slug:
+                current_course = c.course_name
+                instr = c.instructor_name
+                course_det = c
+        current_tutorials = []
+        for t in tutorials.objects.all():
+            print(current_course,t.course_name)
+            if str(t.course_name) == str(current_course):
+                print('true')
+                current_tutorials.append(t)
+        for i in instructor.objects.all():
+            if i.instructor_name == instr:
+                instructor_details = i
+        #print('current course:',current_course)
+        #print(current_tutorials)
+        current_user = request.user
+        temp = courses_enrolled(username = current_user,course_name = course_det)
+        temp.save()
+        return render(request,'tutorials.html',context={'tuts':current_tutorials,'ins':instructor_details,'course':current_course})
+
 
 def test(request):
     return render(request,'videodisp.html',context={'tuts':tutorials.objects.all()})

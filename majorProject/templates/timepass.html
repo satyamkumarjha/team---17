@@ -1,0 +1,17 @@
+{% extends "includes/header.html" %}
+
+{%block content%}
+
+{%for tut in tuts%}
+<p>
+    {{tut}}
+</p>      
+{%endfor%}
+
+{%for tut in user%}
+<p>
+    {{tut}}
+</p>      
+{%endfor%}
+
+{%endblock%}

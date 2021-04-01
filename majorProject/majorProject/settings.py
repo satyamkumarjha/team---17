@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'content',
     'teachers',
     'videoUpload',
+    'quiz',
+    'dashboard',
 
     #all auth
     'allauth',

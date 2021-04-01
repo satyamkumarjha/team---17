@@ -27,6 +27,8 @@ urlpatterns = [
     path('teachers/', include('teachers.urls')),
     path('content/', include('content.urls')),
     path('upload/', include('videoUpload.urls')),
+    path('test/',include('quiz.urls')),
+    path('dashboard/',include('dashboard.urls')),
 ]
 
 if settings.DEBUG:
