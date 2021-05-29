@@ -6,6 +6,7 @@ from quiz.models import quiz
 
 def view_dashboard(request):
     current_user = request.user
+    print(current_user)
     enrolled = []
     quizes = []
     for course in courses_enrolled.objects.all():
@@ -20,6 +21,7 @@ def view_dashboard(request):
     for student in student_details.objects.all():
         if student.username == current_user:
             target_student = student
+    print(target_student)
     print(enrolled)
     print(quizes)
     return render(request,'student-dashboard.html',{'student':target_student,'courses':enrolled, 'quizes' : quizes})

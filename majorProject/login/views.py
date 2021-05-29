@@ -26,7 +26,7 @@ def login_request(request):
         else:
             messages.error(request,"Invalid Username or Password")
     form = LoginForm
-    return render(request,"login.html",context={"form":form})
+    return render(request,"login_form_new.html",context={"form":form})
 
 def register_student(request):
     if request.method == "POST":
@@ -45,7 +45,7 @@ def register_student(request):
             for msg in form.error_messages:
                 messages.error(request,f"{msg}: form.error_messages[msg]")
     form = RegisterForm
-    return render(request,"register-student.html",context={"form":form})
+    return render(request,"signup_form_new.html",context={"form":form})
 
 def register_teacher(request):
     if request.method == "POST":

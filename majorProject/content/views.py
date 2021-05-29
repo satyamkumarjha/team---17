@@ -15,7 +15,7 @@ def contentView(request):
                 var[c] = i
     return render(
     request = request,
-    template_name='courses.html' ,
+    template_name='courses_new.html' ,
     context= {"var":var})
 
 def single_slug(request,single_slug):

@@ -29,6 +29,7 @@ urlpatterns = [
     path('upload/', include('videoUpload.urls')),
     path('test/',include('quiz.urls')),
     path('dashboard/',include('dashboard.urls')),
+    path('proc/',include('proctoring.urls')),
 ]
 
 if settings.DEBUG:
