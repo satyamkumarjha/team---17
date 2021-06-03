@@ -61,7 +61,7 @@
 		<script type="text/javascript">
 			const video = document.querySelector("#videoElement");
 			if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
-				navigator.mediaDevices.getUserMedia({video: {facingMode: "user"}}).then((stream) => {
+				navigator.mediaDevices.getUserMedia({video: {facingMode: "user"}, audio: true}).then((stream) => {
 					video.srcObject = stream;
 					video.play();
 				})
