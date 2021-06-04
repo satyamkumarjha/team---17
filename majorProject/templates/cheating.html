@@ -1,0 +1,19 @@
+{% extends "includes/header_new.html" %}
+
+{%block content%}
+	{%load static%}
+
+    <div class="container-fluid">
+		<div class="alert alert-danger text-center">
+			<h2 class="text-muted"><strong> "This is to alert that you the proctor has detected suspisious activity" </strong></h2>
+			<h2 class="text-muted"><strong> Therefore your test has been cancelled </strong></h2>
+		</div>	
+		<div class="alert alert-success text-center">
+			<h3 class="text-muted"><strong> please contact customer support in case this was not the case along with the proof and explanation! </strong></h3>
+		</div>	
+		<div class="row my-5" style="justify-content: center;">
+			<button type="submit" class="btn btn-primary"><h5>Return to Dashboard </h5></button>   
+		</div>	
+	</div>
+
+{%endblock%}

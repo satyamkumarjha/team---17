@@ -25,11 +25,14 @@ class VideoCamera(object):
         except:
             pass
 
-        for i in range(len(recs)):
-            cv2.rectangle(test_img,(test_img_rec[recs[i]][3],test_img_rec[recs[i]][2]),(test_img_rec[recs[i]][1],test_img_rec[recs[i]][0]),(255,0,255),2)
+        try:
+            for i in range(len(recs)):
+                cv2.rectangle(test_img,(test_img_rec[recs[i]][3],test_img_rec[recs[i]][2]),(test_img_rec[recs[i]][1],test_img_rec[recs[i]][0]),(255,0,255),2)
+        except:
+            pass
 
         frame_flip = cv2.flip(test_img,1)
 
         ret,jpeg = cv2.imencode('.jpg',frame_flip)
         #return len(recs)
-        return jpeg.tobytes()
+        return len(recs),jpeg.tobytes()

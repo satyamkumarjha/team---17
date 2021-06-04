@@ -20,6 +20,7 @@ from . import views
 app_name = 'proctoring'
 
 urlpatterns = [
-    path('',views.homepage,name='homepage'),
-    path('video_feed',views.video_feed,name='video_feed')
+    path('',views.homepage_new,name='homepage'),
+    path('video_feed',views.video_feed,name='video_feed'),
+    path('cheating/',views.cheating,name='cheating'),
 ]
